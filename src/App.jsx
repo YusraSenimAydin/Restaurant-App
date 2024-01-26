@@ -15,10 +15,11 @@ function App() {
     <div>
       
         <Routes>
+        <Route exact path="/" element={<HomePage/>} /> 
           <Route path="/registerpage" element={<RegisterPage/> }/>
           <Route path="/loginpage" element={<LoginPage/>} /> 
           <Route path="/dashboard" element={<Dashboard/>} />
-          <Route exact path="/" element={<HomePage/>} /> 
+         
         </Routes>
       
 
