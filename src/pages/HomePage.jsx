@@ -1,5 +1,6 @@
 import Categories from "../components/categories/Categories";
 import Header from "../components/header/Header";
+import Products from "../components/products/Products";
 
 
 const HomePage = () => {
@@ -12,7 +13,9 @@ const HomePage = () => {
        <Categories/>
         </div>
         <div className="products flex-[8]">
-          <div className="">products</div>
+          <div className="">
+            <Products />
+          </div>
         </div>
         <div className="">
           <div>cart totals</div>
