@@ -29,7 +29,6 @@ function Products() {
           </div>
         </div>
       </div>
-
       <div className='product-item border hover:shadow-lg cursor-pointer transition-all select-none'>
         <div className='product-img'>
           <img
@@ -43,10 +42,162 @@ function Products() {
           </div>
         </div>
       </div>
-
-
-      
-
+      <div className='product-item border hover:shadow-lg cursor-pointer transition-all select-none'>
+        <div className='product-img'>
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiEjbPh2_4zieAajdtV5i6jEhRcYchMpOLyQcsIDgDU7GUXuWxQ4j6zGJZiMGWkdWjhFg&usqp=CAU"
+            alt=""
+            className="h-28 object-cover w-full border-b"
+          />
+          <div className='product-info flex flex-col justify-center items-center p-3 '>
+            <span className='front-bold'>Pilav</span>
+            <span>30₺</span>
+          </div>
+        </div>
+      </div>
+      <div className='product-item border hover:shadow-lg cursor-pointer transition-all select-none'>
+        <div className='product-img'>
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiEjbPh2_4zieAajdtV5i6jEhRcYchMpOLyQcsIDgDU7GUXuWxQ4j6zGJZiMGWkdWjhFg&usqp=CAU"
+            alt=""
+            className="h-28 object-cover w-full border-b"
+          />
+          <div className='product-info flex flex-col justify-center items-center p-3 '>
+            <span className='front-bold'>Pilav</span>
+            <span>30₺</span>
+          </div>
+        </div>
+      </div>
+      <div className='product-item border hover:shadow-lg cursor-pointer transition-all select-none'>
+        <div className='product-img'>
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiEjbPh2_4zieAajdtV5i6jEhRcYchMpOLyQcsIDgDU7GUXuWxQ4j6zGJZiMGWkdWjhFg&usqp=CAU"
+            alt=""
+            className="h-28 object-cover w-full border-b"
+          />
+          <div className='product-info flex flex-col justify-center items-center p-3 '>
+            <span className='front-bold'>Pilav</span>
+            <span>30₺</span>
+          </div>
+        </div>
+      </div>
+      <div className='product-item border hover:shadow-lg cursor-pointer transition-all select-none'>
+        <div className='product-img'>
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiEjbPh2_4zieAajdtV5i6jEhRcYchMpOLyQcsIDgDU7GUXuWxQ4j6zGJZiMGWkdWjhFg&usqp=CAU"
+            alt=""
+            className="h-28 object-cover w-full border-b"
+          />
+          <div className='product-info flex flex-col justify-center items-center p-3 '>
+            <span className='front-bold'>Pilav</span>
+            <span>30₺</span>
+          </div>
+        </div>
+      </div>
+      <div className='product-item border hover:shadow-lg cursor-pointer transition-all select-none'>
+        <div className='product-img'>
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiEjbPh2_4zieAajdtV5i6jEhRcYchMpOLyQcsIDgDU7GUXuWxQ4j6zGJZiMGWkdWjhFg&usqp=CAU"
+            alt=""
+            className="h-28 object-cover w-full border-b"
+          />
+          <div className='product-info flex flex-col justify-center items-center p-3 '>
+            <span className='front-bold'>Pilav</span>
+            <span>30₺</span>
+          </div>
+        </div>
+      </div>
+      <div className='product-item border hover:shadow-lg cursor-pointer transition-all select-none'>
+        <div className='product-img'>
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiEjbPh2_4zieAajdtV5i6jEhRcYchMpOLyQcsIDgDU7GUXuWxQ4j6zGJZiMGWkdWjhFg&usqp=CAU"
+            alt=""
+            className="h-28 object-cover w-full border-b"
+          />
+          <div className='product-info flex flex-col justify-center items-center p-3 '>
+            <span className='front-bold'>Pilav</span>
+            <span>30₺</span>
+          </div>
+        </div>
+      </div>
+      <div className='product-item border hover:shadow-lg cursor-pointer transition-all select-none'>
+        <div className='product-img'>
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiEjbPh2_4zieAajdtV5i6jEhRcYchMpOLyQcsIDgDU7GUXuWxQ4j6zGJZiMGWkdWjhFg&usqp=CAU"
+            alt=""
+            className="h-28 object-cover w-full border-b"
+          />
+          <div className='product-info flex flex-col justify-center items-center p-3 '>
+            <span className='front-bold'>Pilav</span>
+            <span>30₺</span>
+          </div>
+        </div>
+      </div>
+      <div className='product-item border hover:shadow-lg cursor-pointer transition-all select-none'>
+        <div className='product-img'>
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiEjbPh2_4zieAajdtV5i6jEhRcYchMpOLyQcsIDgDU7GUXuWxQ4j6zGJZiMGWkdWjhFg&usqp=CAU"
+            alt=""
+            className="h-28 object-cover w-full border-b"
+          />
+          <div className='product-info flex flex-col justify-center items-center p-3 '>
+            <span className='front-bold'>Pilav</span>
+            <span>30₺</span>
+          </div>
+        </div>
+      </div>
+      <div className='product-item border hover:shadow-lg cursor-pointer transition-all select-none'>
+        <div className='product-img'>
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiEjbPh2_4zieAajdtV5i6jEhRcYchMpOLyQcsIDgDU7GUXuWxQ4j6zGJZiMGWkdWjhFg&usqp=CAU"
+            alt=""
+            className="h-28 object-cover w-full border-b"
+          />
+          <div className='product-info flex flex-col justify-center items-center p-3 '>
+            <span className='front-bold'>Pilav</span>
+            <span>30₺</span>
+          </div>
+        </div>
+      </div>
+      <div className='product-item border hover:shadow-lg cursor-pointer transition-all select-none'>
+        <div className='product-img'>
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiEjbPh2_4zieAajdtV5i6jEhRcYchMpOLyQcsIDgDU7GUXuWxQ4j6zGJZiMGWkdWjhFg&usqp=CAU"
+            alt=""
+            className="h-28 object-cover w-full border-b"
+          />
+          <div className='product-info flex flex-col justify-center items-center p-3 '>
+            <span className='front-bold'>Pilav</span>
+            <span>30₺</span>
+          </div>
+        </div>
+      </div>
+      <div className='product-item border hover:shadow-lg cursor-pointer transition-all select-none'>
+        <div className='product-img'>
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiEjbPh2_4zieAajdtV5i6jEhRcYchMpOLyQcsIDgDU7GUXuWxQ4j6zGJZiMGWkdWjhFg&usqp=CAU"
+            alt=""
+            className="h-28 object-cover w-full border-b"
+          />
+          <div className='product-info flex flex-col justify-center items-center p-3 '>
+            <span className='front-bold'>Pilav</span>
+            <span>30₺</span>
+          </div>
+        </div>
+      </div>
+      <div className='product-item border hover:shadow-lg cursor-pointer transition-all select-none'>
+        <div className='product-img'>
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiEjbPh2_4zieAajdtV5i6jEhRcYchMpOLyQcsIDgDU7GUXuWxQ4j6zGJZiMGWkdWjhFg&usqp=CAU"
+            alt=""
+            className="h-28 object-cover w-full border-b"
+          />
+          <div className='product-info flex flex-col justify-center items-center p-3 '>
+            <span className='front-bold'>Pilav</span>
+            <span>30₺</span>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }

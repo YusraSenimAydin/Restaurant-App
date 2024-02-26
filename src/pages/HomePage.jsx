@@ -8,12 +8,12 @@ const HomePage = () => {
   return (
     <>
       <Header />
-      <div className="home px-6 flex justify-between
-      gap-10">
-        <div className="categories overflow-auto max-h-[calc(100vh-_-112px)] pb-64">
+      <div className="home px-6 md:flex-row flex-col flex justify-between
+      gap-10 md:pb-0 pb-24">
+        <div className="categories overflow-auto max-h-[calc(100vh-_-112px)] md:pb-10">
           <Categories />
         </div>
-        <div className="products flex-[8]">
+        <div className="products flex-[8] max-h-[calc(100vh_-_112px)] overflow-y-auto pb-10">
           <Products />
         </div>
         <div className="cart-wrapper min-w-[300px] md:-mr-[24px] md:-mt-[24px] border">
