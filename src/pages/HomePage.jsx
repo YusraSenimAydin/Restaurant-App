@@ -8,9 +8,8 @@ const HomePage = () => {
   return (
     <>
       <Header />
-      <div className="home px-6 md:flex-row flex-col flex justify-between
-      gap-10 md:pb-0 pb-24">
-        <div className="categories overflow-auto max-h-[calc(100vh-_-112px)] md:pb-10">
+      <div className="home px-6 flex md:flex-row flex-col justify-between gap-10 md:pb-0 pb-24">
+        <div className="categories overflow-auto max-h-[calc(100vh_-_112px)] md:pb-10">
           <Categories />
         </div>
         <div className="products flex-[8] max-h-[calc(100vh_-_112px)] overflow-y-auto pb-10">

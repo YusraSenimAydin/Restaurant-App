@@ -26,7 +26,7 @@ const Header = () => {
           />
         </div>
         <div className="menu-links flex justify-between z-50 
-        items-center gap-7 md:static fixed bottom-0 
+        items-center gap-7 md:static fixed bottom-0  
         md:w-auto w-screen md:bg-transparent bg-white left-0 
         md:border-t-0 border-t md:px-0 px-4 py-1">
           <a
@@ -36,7 +36,7 @@ const Header = () => {
             <HomeOutlined className="md:text-2xl text-xl" />
             <span className="md:text-xs text-[10px]">Ana Sayfa</span>
           </a>
-          <Badge count={5} offset={[0,6]} className="md:flex hidden">
+          <Badge count={5} offset={[0, 6]} className="md:flex hidden">
             <a
               href={"/"}
               className="menu-link flex flex-col hover:text-[#40a9ff] transition-all"
@@ -74,15 +74,15 @@ const Header = () => {
             <span className="md:text-xs text-[10px]">Çıkış</span>
           </a>
         </div>
-        <Badge count={5} offset={[0,6]} className="md:hidden flex">
-            <a
-              href={"/"}
-              className="menu-link flex flex-col hover:text-[#40a9ff] transition-all"
-            >
-              <ShoppingCartOutlined className="text-2xl" />
-              <span className="md:text-xs text-[10px]">Sepet</span>
-            </a>
-          </Badge>
+        <Badge count={5} offset={[0, 6]} className="md:hidden flex">
+          <a
+            href={"/"}
+            className="menu-link flex flex-col hover:text-[#40a9ff] transition-all"
+          >
+            <ShoppingCartOutlined className="text-2xl" />
+            <span className="md:text-xs text-[10px]">Sepet</span>
+          </a>
+        </Badge>
       </header>
     </div>
   );

@@ -7,11 +7,7 @@ import LoginPage from './pages/auth/LoginPage';
 import Dashboard from './pages/Dashboard';
 import CartPage from './pages/CartPage';
 
-
-
-
 function App() {
-
   return (
     <div>
       <Routes>
