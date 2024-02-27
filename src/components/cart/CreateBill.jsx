@@ -1,9 +1,18 @@
-import React from 'react'
+import { Modal } from "antd";
 
-function CreateBill() {
+const CreateBill = ({ isModalOpen, setIsModalOpen }) => {
   return (
-    <div>CreateBill</div>
-  )
-}
+    <Modal
+      title="Fatura Oluştur"
+      open={isModalOpen}
+      footer={false}
+      onCancel={() => setIsModalOpen(false)}
+    >
+      <p>Some contents...</p>
+      <p>Some contents...</p>
+      <p>Some contents...</p>
+    </Modal>
+  );
+};
 
-export default CreateBill
+export default CreateBill;
