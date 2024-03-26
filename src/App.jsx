@@ -19,8 +19,8 @@ function App() {
         <Route path="/bills" element={<BillPage />} />
         <Route path="/customers" element={<CustomerPage />} />
         <Route path='/statistic' element={<StatisticPage />} />
-        <Route path="/registerpage" element={<RegisterPage />} />
-        <Route path="/loginpage" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/login" element={<LoginPage />} />
         <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </div>
