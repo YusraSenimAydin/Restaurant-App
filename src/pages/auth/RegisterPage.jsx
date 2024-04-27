@@ -1,4 +1,4 @@
-import image from '../../assets/6242778.jpeg'
+import image from '..//..//..//public/assets//6242778.jpeg'
 import { Button, Form, Input } from "antd";
 import { Link } from "react-router-dom";
 

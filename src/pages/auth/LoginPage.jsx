@@ -1,5 +1,5 @@
-import image from '../../assets/6242778.jpeg'
-import google from '../../assets/google.svg'
+import image from '..//..//..//public/assets/6242778.jpeg'
+import google from '..//..//..//public/assets/google.svg'
 import { Button, Carousel, Checkbox, Form, Input } from "antd";
 import { Link } from "react-router-dom";
 
