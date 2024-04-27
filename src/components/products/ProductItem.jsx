@@ -17,13 +17,13 @@ const ProductItem = ({ item }) => {
     >
       <div className="product-img">
         <img
-          src={item.img}
+          src={item.image}
           alt=""
           className="h-28 object-cover w-full border-b"
         />
       </div>
       <div className="product-info flex flex-col p-3">
-        <span className="font-bold">{item.title}</span>
+        <span className="font-bold">{item.name}</span>
         <span>{item.price}₺</span>
       </div>
     </div>
