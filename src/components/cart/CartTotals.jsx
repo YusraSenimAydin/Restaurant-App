@@ -7,10 +7,12 @@ import {
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { deleteCart, increase, decrease, reset } from "../../redux/cart/CartSlice";
+import { useNavigate } from "react-router-dom";
 
 const CartTotals = () => {
      const cart = useSelector((state) => state.cart);
      const dispatch = useDispatch();
+     const navigate = useNavigate();
 
      return (
           <div className="cart h-full max-h-[calc(100vh_-_90px)] flex flex-col">
@@ -20,7 +22,7 @@ const CartTotals = () => {
                <ul className="cart-items px-2 flex flex-col gap-y-3 py-2 overflow-y-auto">
                     {cart.cartItems.length > 0
                          ? cart.cartItems.map((item) => (
-                              <li className="cart-item flex justify-between" key={item._id}>
+                              <li className="cart-item flex justify-between p-2 border-b" key={item._id}>
                                    <div className="flex items-center">
                                         <img
                                              src={item.img}
@@ -72,22 +74,7 @@ const CartTotals = () => {
                          : "Sepette hiç ürün yok..."}
                </ul>
                <div className="cart-totals mt-auto">
-                    <div className="border-t border-b">
-                         <div className="flex justify-between p-2">
-                              <b>Ara Toplam</b>
-                              <span>{cart.total > 0 ? cart.total.toFixed(2) : 0}₺</span>
-                         </div>
-                         <div className="flex justify-between p-2">
-                              <b>KDV %{cart.tax}</b>
-                              <span className="text-red-700">
-                                   {(cart.total * cart.tax) / 100 > 0
-                                        ? `+${((cart.total * cart.tax) / 100).toFixed(2)}`
-                                        : 0}
-                                   ₺
-                              </span>
-                         </div>
-                    </div>
-                    <div className="border-b mt-4">
+                    <div className="border-b border-t mt-4">
                          <div className="flex justify-between p-2">
                               <b className="text-xl text-green-500">Genel Toplam</b>
                               <span className="text-xl">
@@ -104,6 +91,7 @@ const CartTotals = () => {
                               size="large"
                               className="w-full"
                               disabled={cart.cartItems.length === 0}
+                              onClick={() => navigate("/cart")}
                          >
                               Sipariş Oluştur
                          </Button>

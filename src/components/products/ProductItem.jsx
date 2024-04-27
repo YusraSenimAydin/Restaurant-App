@@ -14,18 +14,18 @@ const ProductItem = ({ item }) => {
 
   return (
     <div
-      className="product-item border hover:shadow-lg cursor-pointer transition-all select-none"
+      className="product-item border hover:shadow-lg cursor-pointer transition-all select-none rounded-xl"
       onClick={handleClick}
     >
       <div className="product-img">
         <img
-          src={item.image}
+          src={item.img}
           alt=""
-          className="h-28 object-cover w-full border-b"
+          className="h-28 object-cover w-full border-b rounded-xl"
         />
       </div>
       <div className="product-info flex flex-col p-3">
-        <span className="font-bold">{item.name}</span>
+        <span className="font-bold">{item.title}</span>
         <span>{item.price}₺</span>
       </div>
     </div>
