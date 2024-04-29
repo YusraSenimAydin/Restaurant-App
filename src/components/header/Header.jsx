@@ -4,9 +4,6 @@ import {
   SearchOutlined,
   HomeOutlined,
   ShoppingCartOutlined,
-  CopyOutlined,
-  UserOutlined,
-  BarChartOutlined,
   LogoutOutlined,
 } from "@ant-design/icons";
 import { useSelector } from "react-redux";
@@ -47,14 +44,6 @@ const Header = () => {
               <span className="md:text-xs text-[10px]">Sepet</span>
             </Link>
           </Badge>
-          <Link to={"/bills"} className="menu-link">
-            <CopyOutlined className="md:text-2xl text-xl" />
-            <span className="md:text-xs text-[10px]">Faturalar</span>
-          </Link>
-          <Link to={"/statistic"} className="menu-link">
-            <BarChartOutlined className="md:text-2xl text-xl" />
-            <span className="md:text-xs text-[10px]">İstatistikler</span>
-          </Link>
           <Link to={"/"} className="menu-link">
             <LogoutOutlined className="md:text-2xl text-xl" />
             <span className="md:text-xs text-[10px]">Çıkış</span>
