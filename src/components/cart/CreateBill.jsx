@@ -1,6 +1,9 @@
-import { Button, Card, Form, Input, Modal, Select } from "antd";
+import { Button, Card, Form, Input, Modal } from "antd";
+import { useSelector } from "react-redux";
 
 const CreateBill = ({ isModalOpen, setIsModalOpen }) => {
+
+  const cart = useSelector((state) => state.cart);
   const onFinish = (values) => {
     console.log("Received values of form: ", values);
   };
@@ -23,7 +26,7 @@ const CreateBill = ({ isModalOpen, setIsModalOpen }) => {
         <Card>
           <div className="flex justify-between">
             <b>Toplam</b>
-            <b>592.92₺</b>
+            <span>{cart.total > 0 ? cart.total.toFixed(2) : 0}₺</span>
           </div>
           <div className="flex justify-end">
             <Button

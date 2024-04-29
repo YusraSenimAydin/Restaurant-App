@@ -124,10 +124,7 @@ const CartPage = () => {
             <div className="flex justify-between">
               <b>Genel Toplam</b>
               <b>
-                {cart.total + (cart.total * cart.tax) / 100 > 0
-                  ? (cart.total + (cart.total * cart.tax) / 100).toFixed(2)
-                  : 0}
-                ₺
+              {cart.total > 0 ? cart.total.toFixed(2) : 0}₺
               </b>
             </div>
             <Button

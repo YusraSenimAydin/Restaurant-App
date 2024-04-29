@@ -71,18 +71,13 @@ const CartTotals = () => {
                                    </div>
                               </li>
                          ))
-                         : "Sepette hiç ürün yok..."}
+                         : "Sepette hiç ürün yok"}
                </ul>
                <div className="cart-totals mt-auto">
                     <div className="border-b border-t mt-4">
                          <div className="flex justify-between p-2">
                               <b className="text-xl text-green-500">Genel Toplam</b>
-                              <span className="text-xl">
-                                   {cart.total + (cart.total * cart.tax) / 100 > 0
-                                        ? (cart.total + (cart.total * cart.tax) / 100).toFixed(2)
-                                        : 0}
-                                   ₺
-                              </span>
+                              <span>{cart.total > 0 ? cart.total.toFixed(2) : 0}₺</span>
                          </div>
                     </div>
                     <div className="py-4 px-2">
