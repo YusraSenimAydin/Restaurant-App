@@ -69,4 +69,18 @@ export const data = [
     price: 4,
     img: "../../public/assets/pilav.jpeg"
   },
+  {
+    id: 11,
+    title: "Kapalı Ayran",
+    category: "İçecek",
+    price: 4,
+    img: "../../public/assets/pilav.jpeg"
+  },
+  {
+    id: 12,
+    title: "Kapalı Ayran",
+    category: "İçecek",
+    price: 4,
+    img: "../../public/assets/pilav.jpeg"
+  },
 ];

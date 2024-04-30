@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { Badge, Input } from "antd";
 import {
-  SearchOutlined,
   HomeOutlined,
   ShoppingCartOutlined,
   LogoutOutlined,
@@ -21,14 +20,6 @@ const Header = () => {
             <h2 className="text-2xl font-bold md:text-4xl">EMIN USTA</h2>
           </Link>
         </div>
-        <div className="header-search flex-1 flex justify-center">
-          <Input
-            size="large"
-            placeholder="Ürün Ara..."
-            prefix={<SearchOutlined />}
-            className="rounded-full max-w-[800px]"
-          />
-        </div>
         <div className="menu-links">
           <Link to={"/"} className="menu-link">
             <HomeOutlined className="md:text-2xl text-xl" />
@@ -37,7 +28,7 @@ const Header = () => {
           <Badge
             count={cart.cartItems.length}
             offset={[0, 0]}
-            className="md:flex hidden"
+            className=""
           >
             <Link to={"/cart"} className="menu-link">
               <ShoppingCartOutlined className="md:text-2xl text-xl" />
@@ -49,16 +40,6 @@ const Header = () => {
             <span className="md:text-xs text-[10px]">Çıkış</span>
           </Link>
         </div>
-        <Badge
-          count={cart.cartItems.length}
-          offset={[0, 0]}
-          className="md:hidden flex"
-        >
-          <Link to={"/"} className="menu-link">
-            <ShoppingCartOutlined className="text-2xl" />
-            <span className="md:text-xs text-[10px]">Sepet</span>
-          </Link>
-        </Badge>
       </header>
     </div>
   );

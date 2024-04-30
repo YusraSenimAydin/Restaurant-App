@@ -1,131 +1,87 @@
-import { Button, Card, message, Popconfirm, Table } from "antd";
-import { useState } from "react";
+import React, { useState } from "react";
+import { Button, Card, message, Popconfirm } from "antd";
 import { useDispatch, useSelector } from "react-redux";
-import CreateBill from "../components/cart/CreateBill.jsx";
-import Header from "../components/header/Header.jsx";
+import { decrease, deleteCart, increase } from "../redux/cart/CartSlice";
 import { PlusCircleOutlined, MinusCircleOutlined } from "@ant-design/icons";
-import { deleteCart, increase, decrease } from "../redux/cart/CartSlice.jsx";
+import Header from "../components/header/Header";
+import CreateBill from "../components/cart/CreateBill";
 
 const CartPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
-  const columns = [
-    {
-      title: "Ürün Görseli",
-      dataIndex: "img",
-      key: "img",
-      width: "125px",
-      render: (text) => {
-        return <img src={text} alt="" className="w-full h-20 object-cover" />;
-      },
-    },
-    {
-      title: "Ürün Adı",
-      dataIndex: "title",
-      key: "title",
-    },
-    {
-      title: "Kategori",
-      dataIndex: "category",
-      key: "category",
-    },
-    {
-      title: "Ürün Fiyatı",
-      dataIndex: "price",
-      key: "price",
-      render: (text) => {
-        return <span>{text.toFixed(2)}₺</span>;
-      },
-    },
-    {
-      title: "Ürün Adeti",
-      dataIndex: "quantity",
-      key: "quantity",
-      render: (text, record) => {
-        return (
-          <div className="flex items-center">
-            <Button
-              type="primary"
-              size="small"
-              className="w-full flex items-center justify-center !rounded-full"
-              icon={<PlusCircleOutlined />}
-              onClick={() => dispatch(increase(record))}
-            />
-            <span className="font-bold w-6 inline-block text-center">
-              {record.quantity}
-            </span>
-            <Button
-              type="primary"
-              size="small"
-              className="w-full flex items-center justify-center !rounded-full"
-              icon={<MinusCircleOutlined />}
-              onClick={() => {
-                if (record.quantity === 1) {
-                  if (window.confirm("Ürün Silinsin Mi?")) {
-                    dispatch(decrease(record));
-                    message.success("Ürün Sepetten Silindi.");
-                  }
-                }
-                if (record.quantity > 1) {
-                  dispatch(decrease(record));
-                }
-              }}
-            />
-          </div>
-        );
-      },
-    },
-    {
-      title: "Toplam Fiyat",
-      render: (text, record) => {
-        return <span>{(record.quantity * record.price).toFixed(2)}₺</span>;
-      },
-    },
-    {
-      title: "Actions",
-      render: (_, record) => {
-        return (
-          <Popconfirm
-            title="Silmek için emin misiniz?"
-            onConfirm={() => {
-              dispatch(deleteCart(record));
-              message.success("Ürün Sepetten Silindi.");
-            }}
-            okText="Evet"
-            cancelText="Hayır"
-          >
-            <Button type="link" danger>
-              Sil
-            </Button>
-          </Popconfirm>
-        );
-      },
-    },
-  ];
+  const handleIncrease = (item) => {
+    dispatch(increase(item));
+  };
+
+  const handleDecrease = (item) => {
+    if (item.quantity === 1) {
+      if (window.confirm("Ürünü silmek istiyor musunuz?")) {
+        dispatch(decrease(item));
+        message.success("Ürün Sepetten Silindi.");
+      }
+    } else {
+      dispatch(decrease(item));
+    }
+  };
+
+  const handleDelete = (item) => {
+    dispatch(deleteCart(item));
+    message.success("Ürün Sepetten Silindi.");
+  };
 
   return (
     <>
       <Header />
       <div className="px-6">
-        <Table
-          dataSource={cart.cartItems}
-          columns={columns}
-          bordered
-          pagination={false}
-          scroll={{
-            x: 1200,
-            y: 300,
-          }}
-        />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {cart.cartItems.map((item) => (
+            <Card key={item.id} className="flex flex-col justify-between">
+              <div>
+                <img src={item.img} alt="" className="w-full h-32 object-cover" />
+                <h3 className="mt-2 font-semibold">{item.title}</h3>
+                <p className="text-gray-500">{item.category}</p>
+                <div className="flex items-center mt-2">
+                  <Button
+                    type="primary"
+                    className="rounded-full"
+                    icon={<PlusCircleOutlined />}
+                    onClick={() => handleIncrease(item)}
+                  />
+                  <span className="mx-2">{item.quantity}</span>
+                  <Button
+                    type="primary"
+                    className="rounded-full"
+                    icon={<MinusCircleOutlined />}
+                    onClick={() => handleDecrease(item)}
+                  />
+                </div>
+              </div>
+              <div className="mt-4">
+                <span className="font-semibold">Toplam Fiyat:</span>
+                <span className="ml-2">{(item.quantity * item.price).toFixed(2)}₺</span>
+              </div>
+              <div className="mt-4">
+                <Popconfirm
+                  title="Silmek için emin misiniz?"
+                  onConfirm={() => handleDelete(item)}
+                  okText="Evet"
+                  cancelText="Hayır"
+                >
+                  <Button type="link" danger>
+                    Sil
+                  </Button>
+                </Popconfirm>
+              </div>
+            </Card>
+          ))}
+        </div>
         <div className="cart-total flex justify-end mt-4">
-          <Card className="w-72">
+          <Card className="w-full md:w-72">
             <div className="flex justify-between">
               <b>Genel Toplam</b>
-              <b>
-              {cart.total > 0 ? cart.total.toFixed(2) : 0}₺
-              </b>
+              <b>{cart.total > 0 ? cart.total.toFixed(2) : 0}₺</b>
             </div>
             <Button
               className="mt-4 w-full"
