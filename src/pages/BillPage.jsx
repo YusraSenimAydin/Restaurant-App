@@ -17,7 +17,6 @@ const BillPage = () => {
                     console.log(error);
                }
           };
-
           getBills()
      }, []);
 
