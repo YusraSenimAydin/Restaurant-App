@@ -36,15 +36,24 @@ const CartPage = () => {
     message.success("Ürün Sepetten Silindi.");
   };
 
-  const totalPrice = cart.cartItems.reduce((acc, item) => acc + item.quantity * item.price, 0).toFixed(2);
+  // Yeni fonksiyon: Genel toplamı hesapla
+  const calculateTotalPrice = () => {
+    let total = 0;
+    cart.cartItems.forEach((item) => {
+      total += item.quantity * item.price;
+    });
+    return total.toFixed(2);
+  };
+
+  const totalPrice = calculateTotalPrice();
 
   return (
-    <>
+    <div className="wrapper">
       <Header />
-      <div className="px-3 flex flex-col h-full">
+      <div className="px-3 flex flex-col h-full ">
         <h2 className="text-2xl font-bold my-4 text-center">Sipariş Detayları</h2>
 
-        <div className="overflow-y-auto flex-grow">
+        <div className="overflow-y-auto flex-grow ">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {cart.cartItems.map((item) => (
               <Card key={item.id} className="bg-white rounded-lg shadow-lg">
@@ -91,26 +100,26 @@ const CartPage = () => {
               </Card>
             ))}
           </div>
-        </div>
-
-        <div className="mt-4">
-          <div className="flex justify-end">
-            <div className="flex items-center gap-3">
-              <span className="text-xl">Toplam: {totalPrice} ₺</span>
-              <Button
-                type="primary"
-                size="large"
-                onClick={() => setIsModalOpen(true)}
-                disabled={cart.cartItems.length === 0}
-              >
-                Sipariş Oluştur
-              </Button>
-            </div>
-          </div>
+          <div className="mt-8"></div>
         </div>
       </div>
+
+      <div className="create-cart lg:bottom-0 fixed bottom-10 left-0 w-full bg-gray-200 shadow-md p-4">
+        <div className="flex justify-between items-center">
+          <span className="text-xl">Genel Toplam: {totalPrice} ₺</span>
+          <Button
+            type="primary"
+            size="large"
+            onClick={() => setIsModalOpen(true)}
+            disabled={cart.cartItems.length === 0}
+          >
+            Sipariş Oluştur
+          </Button>
+        </div>
+      </div>
+
       <CreateBill isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
-    </>
+    </div>
   );
 };
 

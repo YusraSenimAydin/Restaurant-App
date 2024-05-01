@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addProduct, deleteCart, increase, decrease } from "../../redux/cart/CartSlice";
 import { PlusCircleOutlined, MinusCircleOutlined, CloseOutlined, FileAddTwoTone } from '@ant-design/icons';
 
+
 const ModalCart = ({ product, open, onClose }) => {
      const [quantity, setQuantity] = useState(1);
      const [loading, setLoading] = useState(false);
@@ -18,7 +19,7 @@ const ModalCart = ({ product, open, onClose }) => {
           setTimeout(() => {
                setLoading(false);
                onClose();
-          }, 2000);
+          }, 300);
      };
 
      const handleIncrease = () => {
@@ -35,7 +36,7 @@ const ModalCart = ({ product, open, onClose }) => {
           setTimeout(() => {
                setLoading(false);
                onClose();
-          }, 1000);
+          }, 300);
      }
 
      return (
