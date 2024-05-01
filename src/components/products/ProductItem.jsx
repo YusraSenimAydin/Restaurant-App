@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addProduct } from '../../redux/cart/CartSlice';
 import { message } from 'antd';
-import ModalCart from './ModalCart';
+import ModalCart from '../cart/ModalCart';
 
 const ProductItem = ({ item }) => {
   const dispatch = useDispatch();
@@ -30,7 +30,7 @@ const ProductItem = ({ item }) => {
         <span className="font-bold">{item.title}</span>
         <span>{item.price}₺</span>
       </div>
-      <ModalCart product={item} open={modalVisible} onClose={handleModalClose} />
+      <ModalCart  product={item} open={modalVisible} onClose={handleModalClose} /> 
     </div>
   );
 };

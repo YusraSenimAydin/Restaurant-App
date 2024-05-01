@@ -1,0 +1,5 @@
+.modal-wrap {
+    .rc-motion-mask {
+        display: none !important;
+    }
+}
