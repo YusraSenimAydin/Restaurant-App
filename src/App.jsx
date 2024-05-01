@@ -1,5 +1,5 @@
 import './App.css'
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; // Import BrowserRouter as Router
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/auth/LoginPage';
 import CartPage from './pages/CartPage';
@@ -7,7 +7,7 @@ import CartPage from './pages/CartPage';
 function App() {
   return (
     <div>
-      <Router> {/* Wrap Routes with Router */}
+      <Router> 
         <Routes>
           <Route exact path="/" element={<HomePage />} />
           <Route path="/cart" element={<CartPage />} />

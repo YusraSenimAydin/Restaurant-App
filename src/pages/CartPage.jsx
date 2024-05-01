@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, message, Popconfirm, Modal } from "antd";
+import { Button, message, Popconfirm, Modal, Card } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { decrease, deleteCart, increase } from "../redux/cart/CartSlice";
 import { PlusCircleOutlined, MinusCircleOutlined, DeleteOutlined } from "@ant-design/icons";
@@ -19,8 +19,8 @@ const CartPage = () => {
     if (item.quantity === 1) {
       Modal.confirm({
         title: "Ürünü silmek istiyor musunuz?",
-        okText: "Yes",
-        cancelText: "No",
+        okText: "Evet",
+        cancelText: "Hayır",
         onOk: () => {
           dispatch(decrease(item));
           message.success("Ürün Sepetten Silindi..");
@@ -40,41 +40,57 @@ const CartPage = () => {
     <>
       <Header />
       <div className="px-3">
-        <h2 className="text-2xl font-bold my-4 text-center">Order Details</h2>
-        {cart.cartItems.map((item) => (
-          <div key={item.id} className="cart-item border border-gray-200 rounded-lg p-4 mb-4 flex items-center">
-            <img src={item.img} alt={item.title} className="w-16 h-16 object-cover mr-4" />
-            <div className="flex-1">
-              <h3 className="text-lg font-semibold">{item.title}</h3>
-              <p className="text-sm text-gray-600">{item.category}</p>
-              <p className="text-sm">{item.quantity} x {item.price} ₺</p>
-            </div>
-            <div className="flex items-center">
-              <Button
-                type="primary"
-                className="rounded-full"
-                icon={<PlusCircleOutlined />}
-                onClick={() => handleIncrease(item)}
-              />
-              <span className="mx-2">{item.quantity}</span>
-              <Button
-                type="primary"
-                className="rounded-full"
-                icon={<MinusCircleOutlined />}
-                onClick={() => handleDecrease(item)}
-              />
-              <Popconfirm
-                title="Silmek için emin misiniz?"
-                onConfirm={() => handleDelete(item)}
-                okText="Yes"
-                cancelText="No"
-              >
-                <Button type="text" danger icon={<DeleteOutlined />} />
-              </Popconfirm>
-            </div>
-          </div>
-        ))}
-        <div className="cart-total flex justify-end mt-4">
+        <h2 className="text-2xl font-bold my-4 text-center">Sipariş Detayları</h2>
+
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+          {cart.cartItems.map((item) => (
+            <Card key={item.id} className="bg-white rounded-lg shadow-lg">
+              <div className="flex items-center p-4 border-b border-gray-200">
+                <img src={item.img} alt={item.title} className="w-24 h-24 object-cover mr-6" />
+                <div className="flex-1">
+                  <h3 className="text-lg font-semibold">{item.title}</h3>
+                  <p className="text-sm text-gray-600">{item.category}</p>
+                </div>
+              </div>
+              <div className="flex items-center p-4 border-b border-gray-200">
+                <div className="flex-1">
+                  <p className="text-sm">Adet: {item.quantity}</p>
+                  <p className="text-sm">Fiyat: {item.price} ₺</p>
+                </div>
+                <div className="flex items-center">
+                  <Button
+                    type="primary"
+                    className="rounded-full"
+                    icon={<PlusCircleOutlined />}
+                    onClick={() => handleIncrease(item)}
+                  />
+                  <span className="mx-2">{item.quantity}</span>
+                  <Button
+                    type="primary"
+                    className="rounded-full"
+                    icon={<MinusCircleOutlined />}
+                    onClick={() => handleDecrease(item)}
+                    disabled={item.quantity === 1}
+                  />
+                </div>
+              </div>
+              <div className="flex justify-between items-center p-4">
+                <span className="">Toplam: {cart.cartItems.reduce((acc, item) => acc + item.quantity * item.price, 0).toFixed(2)} ₺</span>
+                <Popconfirm
+                  title="Bu ürünü silmek istediğinize emin misiniz?"
+                  onConfirm={() => handleDelete(item)}
+                  okText="Evet"
+                  cancelText="Hayır"
+                >
+                  <Button type="text" danger icon={<DeleteOutlined />} > Sil </Button>
+                </Popconfirm>
+              </div>
+            </Card>
+          ))}
+        </div>
+
+        <div className="flex justify-end mt-4">
           <div className="flex items-center gap-3">
             <span className="text-xl">Toplam: {cart.cartItems.reduce((acc, item) => acc + item.quantity * item.price, 0).toFixed(2)} ₺</span>
             <Button
