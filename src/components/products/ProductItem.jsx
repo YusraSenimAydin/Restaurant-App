@@ -7,9 +7,10 @@ import ModalCart from '../cart/ModalCart';
 const ProductItem = ({ item }) => {
   const dispatch = useDispatch();
   const [modalVisible, setModalVisible] = useState(false);
+  const [extras, setExtras] = useState('');
 
   const handleClick = () => {
-    dispatch(addProduct({ ...item, quantity: 1 }));
+    dispatch(addProduct({ ...item, quantity: 1, extras: extras }));
     message.success('Ürün Sepete Eklendi.');
   };
 
@@ -30,7 +31,13 @@ const ProductItem = ({ item }) => {
         <span className="font-bold">{item.title}</span>
         <span>{item.price}₺</span>
       </div>
-      <ModalCart  product={item} open={modalVisible} onClose={handleModalClose} /> 
+      <ModalCart
+        product={item}
+        open={modalVisible}
+        onClose={handleModalClose}
+        extras={extras}
+        setExtras={setExtras}
+      />
     </div>
   );
 };

@@ -10,47 +10,51 @@ const cartSlice = createSlice({
   reducers: {
     addProduct: (state, action) => {
       const findCartItem = state.cartItems.find(
-        (item) => item._id === action.payload._id
+        (item) => item.id === action.payload.id
       );
 
       if (findCartItem) {
-        findCartItem.quantity = findCartItem.quantity + 1;
+        findCartItem.quantity += 1;
       } else {
-        state.cartItems.push(action.payload);
+        state.cartItems.push({ ...action.payload, quantity: 1 });
       }
 
       state.total += action.payload.price;
     },
     deleteCart: (state, action) => {
       const deletedItem = state.cartItems.find(
-        (item) => item._id === action.payload._id
+        (item) => item.id === action.payload.id
       );
 
       if (deletedItem) {
         state.total -= deletedItem.price * deletedItem.quantity;
         state.cartItems = state.cartItems.filter(
-          (item) => item._id !== action.payload._id
+          (item) => item.id !== action.payload.id
         );
       }
     },
     increase: (state, action) => {
       const cartItem = state.cartItems.find(
-        (item) => item._id === action.payload._id
+        (item) => item.id === action.payload.id
       );
-      cartItem.quantity += 1;
-      state.total += cartItem.price;
+      if (cartItem) {
+        cartItem.quantity += 1;
+        state.total += cartItem.price;
+      }
     },
     decrease: (state, action) => {
       const cartItem = state.cartItems.find(
-        (item) => item._id === action.payload._id
+        (item) => item.id === action.payload.id
       );
-      cartItem.quantity -= 1;
-      if (cartItem.quantity === 0) {
-        state.cartItems = state.cartItems.filter(
-          (item) => item._id !== action.payload._id
-        );
+      if (cartItem) {
+        cartItem.quantity -= 1;
+        state.total -= cartItem.price;
+        if (cartItem.quantity === 0) {
+          state.cartItems = state.cartItems.filter(
+            (item) => item.id !== action.payload.id
+          );
+        }
       }
-      state.total -= cartItem.price;
     },
     reset: (state) => {
       state.cartItems = [];
