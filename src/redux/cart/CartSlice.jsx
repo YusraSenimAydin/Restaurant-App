@@ -12,15 +12,16 @@ const cartSlice = createSlice({
       const findCartItem = state.cartItems.find(
         (item) => item.id === action.payload.id
       );
-
+    
       if (findCartItem) {
-        findCartItem.quantity += 1;
+        findCartItem.quantity += action.payload.quantity; 
       } else {
-        state.cartItems.push({ ...action.payload, quantity: 1 });
+        state.cartItems.push({ ...action.payload, quantity: action.payload.quantity });
       }
-
-      state.total += action.payload.price;
+    
+      state.total += action.payload.price * action.payload.quantity; 
     },
+    
     deleteCart: (state, action) => {
       const deletedItem = state.cartItems.find(
         (item) => item.id === action.payload.id
