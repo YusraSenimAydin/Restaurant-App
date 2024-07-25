@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
-import { Button, Modal, Input, message, Popconfirm } from 'antd';
-import { useDispatch, useSelector } from 'react-redux';
-import { addProduct, deleteCart, increase, decrease } from "../../redux/cart/CartSlice";
+import { Button, Modal, Input } from 'antd';
+import { useDispatch } from 'react-redux';
+import { addProduct } from "../../redux/cart/CartSlice";
 import { PlusCircleOutlined, MinusCircleOutlined, CloseOutlined, FileAddTwoTone } from '@ant-design/icons';
-
 
 const ModalCart = ({ product, open, onClose }) => {
      const [quantity, setQuantity] = useState(1);
      const [loading, setLoading] = useState(false);
      const [extras, setExtras] = useState('');
-     const cart = useSelector((state) => state.cart);
      const dispatch = useDispatch();
 
      const handleAddToCart = () => {
@@ -43,6 +41,7 @@ const ModalCart = ({ product, open, onClose }) => {
           <Modal
                title="Ürün Detayı"
                open={open}
+               onCancel={handleClose} // Modal dışına tıklandığında veya kapatma butonuna basıldığında tetiklenir
                footer={[
                     <Button
                          key="cancel"
@@ -63,8 +62,7 @@ const ModalCart = ({ product, open, onClose }) => {
                          Sepete Ekle
                     </Button>,
                ]}
-               maskClosable={false}
-               maskTransitionName=""
+               maskClosable={true} // Modal dışına tıklanabilir
           >
                <div className="flex items-center mb-4">
                     <img
@@ -79,22 +77,24 @@ const ModalCart = ({ product, open, onClose }) => {
                          </span>
                     </div>
                     <div className="ml-auto">
-                         <Button
-                              type="primary"
-                              size="small"
-                              className="flex items-center justify-center rounded-full"
-                              icon={<PlusCircleOutlined />}
-                              onClick={handleIncrease}
-                         />
-                         <span className="font-bold mx-2">{quantity}</span>
-                         <Button
-                              type="primary"
-                              size="small"
-                              className="flex items-center justify-center rounded-full"
-                              icon={<MinusCircleOutlined />}
-                              onClick={handleDecrease}
-                              disabled={quantity === 1}
-                         />
+                         <div className="flex items-center">
+                              <Button
+                                   type="primary"
+                                   size="small"
+                                   className="flex items-center justify-center rounded-full"
+                                   icon={<PlusCircleOutlined />}
+                                   onClick={handleIncrease}
+                              />
+                              <span className="font-bold mx-2">{quantity}</span>
+                              <Button
+                                   type="primary"
+                                   size="small"
+                                   className="flex items-center justify-center rounded-full"
+                                   icon={<MinusCircleOutlined />}
+                                   onClick={handleDecrease}
+                                   disabled={quantity === 1}
+                              />
+                         </div>
                     </div>
                </div>
                <Input

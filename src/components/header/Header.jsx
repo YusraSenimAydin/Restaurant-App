@@ -16,26 +16,26 @@ const Header = React.memo(() => {
 
   return (
     <div className="border-b mb-6">
-      <header className="py-4 px-6 flex justify-between items-center gap-10">
+      <header className="py-4 px-6 flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-10">
         <div className="logo">
           <Link to="/">
-            <h2 className="text-2xl font-bold md:text-4xl">EMİN USTA</h2>
+            <h2 className="text-2xl font-bold sm:text-4xl">EMİN USTA</h2>
           </Link>
         </div>
-        <div className="menu-links">
-          <Link to="/" className="menu-link">
-            <HomeOutlined className="md:text-2xl text-xl" />
-            <span className="md:text-xs text-[10px]">Ana Sayfa</span>
+        <div className="menu-links flex flex-wrap gap-4 sm:gap-10">
+          <Link to="/" className="menu-link flex items-center flex-col sm:flex-row">
+            <HomeOutlined className="text-xl sm:text-2xl" />
+            <span className="text-xs sm:text-sm">Ana Sayfa</span>
           </Link>
           <Badge count={cartItemsCount} offset={[0, 0]} className="">
-            <Link to="/cart" className="menu-link">
-              <ShoppingCartOutlined className="md:text-2xl text-xl" />
-              <span className="md:text-xs text-[10px]">Sepet</span>
+            <Link to="/cart" className="menu-link flex items-center flex-col sm:flex-row">
+              <ShoppingCartOutlined className="text-xl sm:text-2xl" />
+              <span className="text-xs sm:text-sm">Sepet</span>
             </Link>
           </Badge>
-          <Link to="/" className="menu-link">
-            <LogoutOutlined className="md:text-2xl text-xl" />
-            <span className="md:text-xs text-[10px]">Çıkış</span>
+          <Link to="/" className="menu-link flex items-center flex-col sm:flex-row">
+            <LogoutOutlined className="text-xl sm:text-2xl" />
+            <span className="text-xs sm:text-sm">Çıkış</span>
           </Link>
         </div>
       </header>
