@@ -17,7 +17,7 @@ const CreateBill = ({ isModalOpen, setIsModalOpen }) => {
     >
       <Form layout={"vertical"} onFinish={onFinish}>
         <Form.Item
-          rules={[{ required: true }]}
+          rules={[{ required: true, message: "Masa No Alanı Boş Bırakılamaz!" }]}
           name={"masaNo"}
           label="Masa No"
         >

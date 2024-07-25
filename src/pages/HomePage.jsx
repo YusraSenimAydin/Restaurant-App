@@ -7,12 +7,11 @@ import { data } from '../data/data.js';
 const HomePage = () => {
   const [categories, setCategories] = useState([]);
   const [category, setCategory] = useState('');
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState(data);
 
   useEffect(() => {
-    const categories = [...new Set(data.map(item => item.category))];
-    setCategories(categories);
-    setProducts(data);
+    const uniqueCategories = [...new Set(data.map(item => item.category))];
+    setCategories(uniqueCategories);
   }, []);
 
   return (
